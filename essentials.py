@@ -330,14 +330,24 @@ class FloatAbsoluteInvocation(BaseInvocation):
     
 
 @invocation("floatround", title="Float Round (round)", tags=["math", "float", "integer", "round"], category="math")
-class FloatCeilInvocation(BaseInvocation):
+class FloatRoundInvocation(BaseInvocation):
     """Rounds a float and casts to an integer"""
 
     a: float = InputField(default=0, description=FieldDescriptions.num_1)
 
     def invoke(self, context: InvocationContext) -> IntegerOutput:
-        return IntegerOutput(value=int(math.ceil(self.a)))
+        return IntegerOutput(value=int(math.round(self.a)))
 
+
+@invocation("floatroundtomultiple", title="Float Round To Multiple", tags=["math", "float", "integer", "round"], category="math")
+class FloatRoundToMultipleInvocation(BaseInvocation):
+    """Rounds a float to the next multiple of N and casts to an integer"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+    n: float = InputField(default=8, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> IntegerOutput:
+        return IntegerOutput(value=int(a // n * n))
 
 @invocation("floatceil", title="Float Ceiling (ceil)", tags=["math", "float", "integer", "ceiling"], category="math")
 class FloatCeilInvocation(BaseInvocation):

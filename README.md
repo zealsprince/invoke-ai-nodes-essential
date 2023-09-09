@@ -2,12 +2,22 @@
 
 Extension for [InvokeAI](https://github.com/invoke-ai/InvokeAI "InvokeAI")'s node editor containing essential math and logic functions.
 
+This collection of nodes was created out of a desire to build more dynamic and conditional workflows and aims to close what to me felt like a gap in the built-in functions and nodes that ship with InvokeAI.
+
+I plan on expanding these nodes with more essential workflow modules such as basic image editing to close a gap in functionality there as well.
+
 ## Installation
 
 To install, place the `.py` files into your InvokeAI invocations folder located here:
 
 Windows - `invokeai\.venv\Lib\site-packages\invokeai\app\invocations\`
 <br>Mac/Linux - `invokeai/.venv/lib/python3.10/site-packages/invokeai/app/invocations/`
+
+## Example Use
+
+![Example](https://user-images.githubusercontent.com/1859270/266791992-ad47eca8-aed3-4f62-81bc-ef5cd5354188.png)
+
+## Functions
 
 |Function|Title|Description|
 |---|---|---|
@@ -63,109 +73,3 @@ Windows - `invokeai\.venv\Lib\site-packages\invokeai\app\invocations\`
 | FloatGreaterEqualsInvocation | Float Greater or Equal Than (>=) | Compares if one floating point number is greater than or equal to another
 | FloatLessInvocation | Float Less Than (<) | Compares if one floating point number is less than another
 | FloatLessEqualsInvocation | Float Less or Equal Than (<=) | Compares if one floating point number is less than or equal to another
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
