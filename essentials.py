@@ -87,7 +87,7 @@ class BooleanRandomInvocation(BaseInvocation):
 class IntegerCastBooleanInvocation(BaseInvocation):
     """Casts an integer to a boolean"""
 
-    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+    a: int = InputField(default=0, description=FieldDescriptions.num_1)
 
     def invoke(self, context: InvocationContext) -> BooleanOutput:
         return BooleanOutput(value=True if self.a != 0 else False)
@@ -97,7 +97,7 @@ class IntegerCastBooleanInvocation(BaseInvocation):
 class IntegerCastFloatInvocation(BaseInvocation):
     """Casts an integer to a float"""
 
-    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+    a: int = InputField(default=0, description=FieldDescriptions.num_1)
 
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=int(self.a))
@@ -178,6 +178,61 @@ class IntegerRandomInvocation(BaseInvocation):
 
     def invoke(self, context: InvocationContext) -> IntegerOutput:
         return IntegerOutput(value=np.random.randint(self.low, self.high))
+
+
+@invocation("intequals", title="Integer Equals (==)", tags=["logic", "condition", "int", "equal"], category="logic")
+class IntegerEqualsInvocation(BaseInvocation):
+    """Compares two Integers"""
+
+    a: int = InputField(default=True, description=FieldDescriptions.num_1)
+    b: int = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a == self.b)
+
+
+@invocation("intgreater", title="Integer Greater Than (>)", tags=["logic", "condition", "int", "greater"], category="logic")
+class IntegerGreaterInvocation(BaseInvocation):
+    """Compares if one Integer is greater than another"""
+
+    a: int = InputField(default=True, description=FieldDescriptions.num_1)
+    b: int = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a > self.b)
+
+
+@invocation("intgreaterequals", title="Integer Greater or Equal Than (>=)", tags=["logic", "condition", "int", "greater", "equal"], category="logic")
+class IntegerGreaterEqualsInvocation(BaseInvocation):
+    """Compares if one Integer is greater than or equal to another"""
+
+    a: int = InputField(default=True, description=FieldDescriptions.num_1)
+    b: int = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a >= self.b)
+
+
+@invocation("intless", title="Integer Less Than (<)", tags=["logic", "condition", "int", "less"], category="logic")
+class IntegerLessInvocation(BaseInvocation):
+    """Compares if one Integer is less than another"""
+
+    a: int = InputField(default=True, description=FieldDescriptions.num_1)
+    b: int = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a < self.b)
+
+
+@invocation("intlessequals", title="Integer Less or Equal Than (<=)", tags=["logic", "condition", "int", "less", "equal"], category="logic")
+class IntegerLessEqualsInvocation(BaseInvocation):
+    """Compares if one Integer is less than or equal to another"""
+
+    a: int = InputField(default=True, description=FieldDescriptions.num_1)
+    b: int = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a <= self.b)
 
 # 88888888888  88
 # 88           88                             ,d
@@ -303,8 +358,49 @@ class FloatFloorInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> IntegerOutput:
         return IntegerOutput(value=int(math.floor(self.a)))
 
+
+@invocation("floatpow", title="Float Raise Power (pow)", tags=["math", "float", "pow"], category="math")
+class FloatPowInvocation(BaseInvocation):
+    """Raises a float to the power of a value"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+    b: int = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.pow(self.a, self.b))
+
+
+@invocation("floatsqrt", title="Float Square Root (sqrt)", tags=["math", "float", "sqrt"], category="math")
+class FloatSqrtInvocation(BaseInvocation):
+    """Calculates the square root of a float"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.sqrt(self.a))
+
+
+@invocation("floatlog", title="Float Logarithm (log)", tags=["math", "float", "log"], category="math")
+class FloatLogInvocation(BaseInvocation):
+    """Calculates the natural logarithm of a float"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.log(self.a))
+    
+@invocation("floatlogn", title="Float Logarithm N (logn)", tags=["math", "float", "log"], category="math")
+class FloatLogNInvocation(BaseInvocation):
+    """Calculates the logarithm of a float to a base N"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+    n: int = InputField(default=0, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.log(self.a, self.n))
+
 @invocation("floatsin", title="Float Sine (sin)", tags=["math", "float", "sine"], category="math")
-class FloatSinInvocation(BaseInvocation):
+class FloatSineInvocation(BaseInvocation):
     """Calculates the sine of a float as radians"""
 
     a: float = InputField(default=0, description=FieldDescriptions.num_1)
@@ -314,17 +410,16 @@ class FloatSinInvocation(BaseInvocation):
     
 
 @invocation("floatcos", title="Float Cosine (cos)", tags=["math", "float", "cosine"], category="math")
-class FloatCosInvocation(BaseInvocation):
+class FloatCosineInvocation(BaseInvocation):
     """Calculates the cosine of a float as radians"""
 
     a: float = InputField(default=0, description=FieldDescriptions.num_1)
 
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.cos(self.a))
-    
 
 @invocation("floattan", title="Float Tangent (tan)", tags=["math", "float", "tangent"], category="math")
-class FloatTanInvocation(BaseInvocation):
+class FloatTangentInvocation(BaseInvocation):
     """Calculates the tangent of a float as radians"""
 
     a: float = InputField(default=0, description=FieldDescriptions.num_1)
@@ -332,6 +427,92 @@ class FloatTanInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.tan(self.a))
 
+
+@invocation("floatsinh", title="Float Hyperbolic Tangent (sinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
+class FloatHyperbolicSineInvocation(BaseInvocation):
+    """Calculates the hyperbolic sine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.sinh(self.a))
+
+
+@invocation("floatcosh", title="Float Hyperbolic Cosine (cosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
+class FloatHyperbolicCosineInvocation(BaseInvocation):
+    """Calculates the hyperbolic cosine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.cosh(self.a))
+
+
+@invocation("floattanh", title="Float Hyperbolic Tangent (tanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
+class FloatHyperbolicTangentInvocation(BaseInvocation):
+    """Calculates the hyperbolic tangent of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.tanh(self.a))
+
+@invocation("floatasin", title="Float Arc Tangent (asin)", tags=["math", "float", "sine", "arc"], category="math")
+class FloatArcSineInvocation(BaseInvocation):
+    """Calculates the arc sine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.asin(self.a))
+    
+@invocation("floatacos", title="Float Arc Cosine (acos)", tags=["math", "float", "cosine", "arc"], category="math")
+class FloatArcCosineInvocation(BaseInvocation):
+    """Calculates the arc cosine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.acos(self.a))
+
+@invocation("floatatan", title="Float Arc Tangent (atan)", tags=["math", "float", "tangent", "arc"], category="math")
+class FloatArcTangentInvocation(BaseInvocation):
+    """Calculates the arc tangent of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.atan(self.a))
+
+
+@invocation("floatasinh", title="Float Inverse Hyperbolic Tangent (asinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
+class FloatInverseHyerbolicSineInvocation(BaseInvocation):
+    """Calculates the inverse hyperbolic sine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.asinh(self.a))
+
+
+@invocation("floatacosh", title="Float Inverse Hyperbolic Cosine (acosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
+class FloatInverseHyerbolicCosineInvocation(BaseInvocation):
+    """Calculates the inverse hyperbolic cosine of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.acosh(self.a))
+
+
+@invocation("floatatanh", title="Float Inverse Hyperbolic Tangent (atanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
+class FloatInverseHyerbolicTangentInvocation(BaseInvocation):
+    """Calculates the inverse hyperbolic tangent of a float as radians"""
+
+    a: float = InputField(default=0, description=FieldDescriptions.num_1)
+
+    def invoke(self, context: InvocationContext) -> FloatOutput:
+        return FloatOutput(value=math.atanh(self.a))
 
 @invocation("floatrand", title="Float Random", tags=["math", "float", "random"], category="math")
 class FloatRandomInvocation(BaseInvocation):
@@ -344,16 +525,57 @@ class FloatRandomInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=float(random.uniform(self.low, self.high)))
 
-# Float equals
-# Float greaterthan
-# Float lessthan
-# Float greaterthanequals
-# Float lessthanequals
 
-# Float pow
-# Float sqrt
-# Float log
+@invocation("floatequals", title="Float Equals (==)", tags=["logic", "condition", "float", "equal", "boolean"], category="logic")
+class FloatEqualsInvocation(BaseInvocation):
+    """Compares two floating point numbers"""
 
-# Float asin
-# Float acos
-# Float atan
+    a: float = InputField(default=True, description=FieldDescriptions.num_1)
+    b: float = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a == self.b)
+    
+
+@invocation("floatgreater", title="Float Greater Than (>)", tags=["logic", "condition", "float", "greater", "boolean"], category="logic")
+class FloatGreaterInvocation(BaseInvocation):
+    """Compares if one floating point number is greater than another"""
+
+    a: float = InputField(default=True, description=FieldDescriptions.num_1)
+    b: float = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a > self.b)
+
+
+@invocation("floatgreaterequals", title="Float Greater or Equal Than (>=)", tags=["logic", "condition", "float", "greater", "equal", "boolean"], category="logic")
+class FloatGreaterEqualsInvocation(BaseInvocation):
+    """Compares if one floating point number is greater than or equal to another"""
+
+    a: float = InputField(default=True, description=FieldDescriptions.num_1)
+    b: float = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a >= self.b)
+
+
+@invocation("floatless", title="Float Less Than (<)", tags=["logic", "condition", "float", "less", "boolean"], category="logic")
+class FloatLessInvocation(BaseInvocation):
+    """Compares if one floating point number is less than another"""
+
+    a: float = InputField(default=True, description=FieldDescriptions.num_1)
+    b: float = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a < self.b)
+
+
+@invocation("floatlessequals", title="Float Less or Equal Than (<=)", tags=["logic", "condition", "float", "less", "equal", "boolean"], category="logic")
+class FloatLessEqualsInvocation(BaseInvocation):
+    """Compares if one floating point number is less than or equal to another"""
+
+    a: float = InputField(default=True, description=FieldDescriptions.num_1)
+    b: float = InputField(default=True, description=FieldDescriptions.num_2)
+
+    def invoke(self, context: InvocationContext) -> BooleanOutput:
+        return BooleanOutput(value=self.a <= self.b)
