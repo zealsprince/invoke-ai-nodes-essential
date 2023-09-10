@@ -347,7 +347,7 @@ class FloatRoundToMultipleInvocation(BaseInvocation):
     n: float = InputField(default=8, description=FieldDescriptions.num_2)
 
     def invoke(self, context: InvocationContext) -> IntegerOutput:
-        return IntegerOutput(value=int(a // n * n))
+        return IntegerOutput(value=int(self.a // self.n * self.n))
 
 @invocation("floatceil", title="Float Ceiling (ceil)", tags=["math", "float", "integer", "ceiling"], category="math")
 class FloatCeilInvocation(BaseInvocation):
