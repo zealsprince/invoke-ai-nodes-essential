@@ -9,7 +9,7 @@ import numpy as np
 
 from pydantic import BaseModel, Field
 
-from .baseinvocation import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation
+from invokeai.invocation_api import BaseInvocation, FieldDescriptions, InputField, InvocationContext, invocation
 
 from invokeai.app.invocations.primitives import BooleanOutput, IntegerOutput, FloatOutput
 

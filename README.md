@@ -8,6 +8,48 @@ I plan on expanding these nodes with more essential workflow modules such as bas
 
 ## Installation
 
+### Latest Method (Recommended)
+This package is now compatible with Invoke AI's Custom Node Manager. You can install it directly from GitHub:
+
+1. Open Invoke AI's web interface
+2. Go to the Custom Nodes section
+3. Install from Git URL: `https://github.com/zealsprince/invoke-ai-nodes-essential`
+
+### Manual Installation (Legacy)
+To install manually, clone this repository and place it in your InvokeAI nodes directory:
+
+```bash
+git clone https://github.com/zealsprince/invoke-ai-nodes-essential.git
+# Copy the cloned directory to your InvokeAI nodes folder
+```
+
+The nodes directory is typically located at:
+- Windows: `invokeai\nodes\`
+- Mac/Linux: `invokeai/nodes/`
+
+### Legacy Installation (Deprecated)
+**Note:** This method is deprecated and may not work with newer versions of Invoke AI.
+
+To install the old way, place the `.py` files into your InvokeAI invocations folder located here:
+
+Windows - `invokeai\.venv\Lib\site-packages\invokeai\app\invocations\`
+
+Mac/Linux - `invokeai/.venv/lib/python3.10/site-packages/invokeai/app/invocations/`
+
+## Compatibility
+
+This package has been updated to work with the latest version of Invoke AI (v4.0.0+). The following changes were made:
+
+- Updated imports to use `invokeai.invocation_api` instead of internal modules
+- Added `__init__.py` file to make this a proper Python package
+- All nodes are now properly registered through the package's `__init__.py`
+
+## Original README (Reference)
+
+The original installation method and documentation is preserved below for reference:
+
+### Original Installation Instructions
+
 To install, place the `.py` files into your InvokeAI invocations folder located here:
 
 Windows - `invokeai\.venv\Lib\site-packages\invokeai\app\invocations\`
