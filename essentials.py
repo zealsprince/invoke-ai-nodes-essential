@@ -23,7 +23,7 @@ from invokeai.app.invocations.primitives import BooleanOutput, IntegerOutput, Fl
 # 88888888P"    `"YbbdP"'    `"YbbdP"'   88   `"Ybbd8"'  `"8bbdP"Y8  88       88
 
 
-@invocation("booltoint", title="Boolean to Integer", tags=["cast", "math", "boolean", "integer"], category="cast")
+@invocation("booltoint", version="1.0", title="Boolean to Integer", tags=["cast", "math", "boolean", "integer"], category="cast")
 class BooleanCastInteger(BaseInvocation):
     """Casts a boolean to an integer"""
 
@@ -33,7 +33,7 @@ class BooleanCastInteger(BaseInvocation):
         return IntegerOutput(value=1 if self.a == True else 0)
 
 
-@invocation("booltofloat", title="Boolean to Float", tags=["cast", "math", "boolean", "float"], category="cast")
+@invocation("booltofloat", version="1.0", title="Boolean to Float", tags=["cast", "math", "boolean", "float"], category="cast")
 class BooleanCastFloat(BaseInvocation):
     """Casts a boolean to a float"""
 
@@ -43,7 +43,7 @@ class BooleanCastFloat(BaseInvocation):
         return FloatOutput(value=1.0 if self.a == True else 0)
 
 
-@invocation("boolnot", title="Boolean Not (!)", tags=["logic", "math", "boolean", "not"], category="logic")
+@invocation("boolnot", version="1.0", title="Boolean Not (!)", tags=["logic", "math", "boolean", "not"], category="logic")
 class BooleanNotInvocation(BaseInvocation):
     """Inverses a boolean"""
 
@@ -53,7 +53,7 @@ class BooleanNotInvocation(BaseInvocation):
         return BooleanOutput(value=not self.value)
 
 
-@invocation("boolequals", title="Boolean Equals (==)", tags=["logic", "condition", "boolean", "equal"], category="logic")
+@invocation("boolequals", version="1.0", title="Boolean Equals (==)", tags=["logic", "condition", "boolean", "equal"], category="logic")
 class BooleanEqualsInvocation(BaseInvocation):
     """Compares two booleans"""
 
@@ -64,7 +64,7 @@ class BooleanEqualsInvocation(BaseInvocation):
         return BooleanOutput(value=self.a == self.b)
 
 
-@invocation("boolrand", title="Boolean Random", tags=["math", "boolean", "random"], category="math")
+@invocation("boolrand", version="1.0", title="Boolean Random", tags=["math", "boolean", "random"], category="math")
 class BooleanRandomInvocation(BaseInvocation):
     """Outputs a random boolean"""
 
@@ -83,7 +83,7 @@ class BooleanRandomInvocation(BaseInvocation):
 #                                       "Y8bbdP"
 
 
-@invocation("inttobool", title="Integer to Boolean", tags=["cast", "math", "float", "boolean"], category="cast")
+@invocation("inttobool", version="1.0", title="Integer to Boolean", tags=["cast", "math", "float", "boolean"], category="cast")
 class IntegerCastBooleanInvocation(BaseInvocation):
     """Casts an integer to a boolean"""
 
@@ -93,7 +93,7 @@ class IntegerCastBooleanInvocation(BaseInvocation):
         return BooleanOutput(value=True if self.a != 0 else False)
 
 
-@invocation("inttofloat", title="Integer to Float", tags=["cast", "math", "float", "integer"], category="cast")
+@invocation("inttofloat", version="1.0", title="Integer to Float", tags=["cast", "math", "float", "integer"], category="cast")
 class IntegerCastFloatInvocation(BaseInvocation):
     """Casts an integer to a float"""
 
@@ -103,7 +103,7 @@ class IntegerCastFloatInvocation(BaseInvocation):
         return FloatOutput(value=int(self.a))
 
 
-@invocation("intadd", title="Integer Addition (+)", tags=["math", "integer", "add"], category="math")
+@invocation("intadd", version="1.0", title="Integer Addition (+)", tags=["math", "integer", "add"], category="math")
 class IntegerAddInvocation(BaseInvocation):
     """Adds two integers"""
 
@@ -114,7 +114,7 @@ class IntegerAddInvocation(BaseInvocation):
         return IntegerOutput(value=self.a + self.b)
 
 
-@invocation("intsub", title="Integer Subtraction (-)", tags=["math", "integer", "subtract"], category="math")
+@invocation("intsub", version="1.0", title="Integer Subtraction (-)", tags=["math", "integer", "subtract"], category="math")
 class IntegerSubtractInvocation(BaseInvocation):
     """Subtracts two integers"""
 
@@ -125,7 +125,7 @@ class IntegerSubtractInvocation(BaseInvocation):
         return IntegerOutput(value=self.a - self.b)
 
 
-@invocation("intmul", title="Integer Multiplication (*)", tags=["math", "integer",  "multiply"], category="math")
+@invocation("intmul", version="1.0", title="Integer Multiplication (*)", tags=["math", "integer",  "multiply"], category="math")
 class IntegerMultiplyInvocation(BaseInvocation):
     """Multiplies two integers"""
 
@@ -136,7 +136,7 @@ class IntegerMultiplyInvocation(BaseInvocation):
         return IntegerOutput(value=self.a * self.b)
 
 
-@invocation("intdiv", title="Integer Division (/)", tags=["math", "integer", "divide"], category="math")
+@invocation("intdiv", version="1.0", title="Integer Division (/)", tags=["math", "integer", "divide"], category="math")
 class IntegerDivideInvocation(BaseInvocation):
     """Divides two integers"""
 
@@ -147,7 +147,7 @@ class IntegerDivideInvocation(BaseInvocation):
         return IntegerOutput(value=int(self.a / self.b))
 
 
-@invocation("intmodulo", title="Integer Modulo (%)", tags=["math", "integer", "modulo"], category="math")
+@invocation("intmodulo", version="1.0", title="Integer Modulo (%)", tags=["math", "integer", "modulo"], category="math")
 class IntegerModuloInvocation(BaseInvocation):
     """Calculates the remainder of a division as an integer"""
 
@@ -158,7 +158,7 @@ class IntegerModuloInvocation(BaseInvocation):
         return IntegerOutput(value=self.a % self.b)
 
 
-@invocation("intabs", title="Integer Absolute (abs)", tags=["math", "integer", "absolute"], category="math")
+@invocation("intabs", version="1.0", title="Integer Absolute (abs)", tags=["math", "integer", "absolute"], category="math")
 class IntegerAbsoluteInvocation(BaseInvocation):
     """Calculates the absolute value of an integer"""
 
@@ -168,7 +168,7 @@ class IntegerAbsoluteInvocation(BaseInvocation):
         return IntegerOutput(value=math.abs(self.a))
 
 
-@invocation("intrand", title="Integer Random", tags=["math", "integer", "random"], category="math")
+@invocation("intrand", version="1.0", title="Integer Random", tags=["math", "integer", "random"], category="math")
 class IntegerRandomInvocation(BaseInvocation):
     """Outputs a single random integer"""
 
@@ -180,7 +180,7 @@ class IntegerRandomInvocation(BaseInvocation):
         return IntegerOutput(value=np.random.randint(self.low, self.high))
 
 
-@invocation("intequals", title="Integer Equals (==)", tags=["logic", "condition", "int", "equal"], category="logic")
+@invocation("intequals", version="1.0", title="Integer Equals (==)", tags=["logic", "condition", "int", "equal"], category="logic")
 class IntegerEqualsInvocation(BaseInvocation):
     """Compares two Integers"""
 
@@ -191,7 +191,7 @@ class IntegerEqualsInvocation(BaseInvocation):
         return BooleanOutput(value=self.a == self.b)
 
 
-@invocation("intgreater", title="Integer Greater Than (>)", tags=["logic", "condition", "int", "greater"], category="logic")
+@invocation("intgreater", version="1.0", title="Integer Greater Than (>)", tags=["logic", "condition", "int", "greater"], category="logic")
 class IntegerGreaterInvocation(BaseInvocation):
     """Compares if one Integer is greater than another"""
 
@@ -202,7 +202,7 @@ class IntegerGreaterInvocation(BaseInvocation):
         return BooleanOutput(value=self.a > self.b)
 
 
-@invocation("intgreaterequals", title="Integer Greater or Equal Than (>=)", tags=["logic", "condition", "int", "greater", "equal"], category="logic")
+@invocation("intgreaterequals", version="1.0", title="Integer Greater or Equal Than (>=)", tags=["logic", "condition", "int", "greater", "equal"], category="logic")
 class IntegerGreaterEqualsInvocation(BaseInvocation):
     """Compares if one Integer is greater than or equal to another"""
 
@@ -213,7 +213,7 @@ class IntegerGreaterEqualsInvocation(BaseInvocation):
         return BooleanOutput(value=self.a >= self.b)
 
 
-@invocation("intless", title="Integer Less Than (<)", tags=["logic", "condition", "int", "less"], category="logic")
+@invocation("intless", version="1.0", title="Integer Less Than (<)", tags=["logic", "condition", "int", "less"], category="logic")
 class IntegerLessInvocation(BaseInvocation):
     """Compares if one Integer is less than another"""
 
@@ -224,7 +224,7 @@ class IntegerLessInvocation(BaseInvocation):
         return BooleanOutput(value=self.a < self.b)
 
 
-@invocation("intlessequals", title="Integer Less or Equal Than (<=)", tags=["logic", "condition", "int", "less", "equal"], category="logic")
+@invocation("intlessequals", version="1.0", title="Integer Less or Equal Than (<=)", tags=["logic", "condition", "int", "less", "equal"], category="logic")
 class IntegerLessEqualsInvocation(BaseInvocation):
     """Compares if one Integer is less than or equal to another"""
 
@@ -233,6 +233,22 @@ class IntegerLessEqualsInvocation(BaseInvocation):
 
     def invoke(self, context: InvocationContext) -> BooleanOutput:
         return BooleanOutput(value=self.a <= self.b)
+
+
+@invocation("intmulfloat", version="1.0", title="Integer Multiply Float", tags=["math", "integer", "float", "multiply"], category="math")
+class IntegerMultiplyFloatInvocation(BaseInvocation):
+    """Multiplies an integer (converted to float) with a float, then converts back to integer with rounding control"""
+
+    a: int = InputField(default=0, description=FieldDescriptions.num_1)
+    b: float = InputField(default=1.0, description=FieldDescriptions.num_2)
+    round_up: bool = InputField(default=False, description="If true, round up (ceil); if false, round down (floor)")
+
+    def invoke(self, context: InvocationContext) -> IntegerOutput:
+        result = float(self.a) * self.b
+        if self.round_up:
+            return IntegerOutput(value=int(math.ceil(result)))
+        else:
+            return IntegerOutput(value=int(math.floor(result)))
 
 # 88888888888  88
 # 88           88                             ,d
@@ -244,7 +260,7 @@ class IntegerLessEqualsInvocation(BaseInvocation):
 # 88           88   `"YbbdP"'   `"8bbdP"Y8    "Y888
 
 
-@invocation("floattobool", title="Float to Boolean", tags=["cast", "math", "float", "boolean"], category="cast")
+@invocation("floattobool", version="1.0", title="Float to Boolean", tags=["cast", "math", "float", "boolean"], category="cast")
 class FloatCastBooleanInvocation(BaseInvocation):
     """Casts a float to a boolean"""
 
@@ -254,7 +270,7 @@ class FloatCastBooleanInvocation(BaseInvocation):
         return BooleanOutput(value=True if self.a != 0 else False)
 
 
-@invocation("floattoint", title="Float to Integer", tags=["cast", "math", "float", "integer"], category="cast")
+@invocation("floattoint", version="1.0", title="Float to Integer", tags=["cast", "math", "float", "integer"], category="cast")
 class FloatCastIntegerInvocation(BaseInvocation):
     """Casts a float to an integer"""
 
@@ -264,7 +280,7 @@ class FloatCastIntegerInvocation(BaseInvocation):
         return IntegerOutput(value=int(self.a))
 
 
-@invocation("floatadd", title="Float Addition (+)", tags=["math", "float", "add"], category="math")
+@invocation("floatadd", version="1.0", title="Float Addition (+)", tags=["math", "float", "add"], category="math")
 class FloatAddInvocation(BaseInvocation):
     """Adds two floating point numbers"""
 
@@ -275,7 +291,7 @@ class FloatAddInvocation(BaseInvocation):
         return FloatOutput(value=self.a + self.b)
 
 
-@invocation("floatsub", title="Float Subtraction (-)", tags=["math", "float", "subtract"], category="math")
+@invocation("floatsub", version="1.0", title="Float Subtraction (-)", tags=["math", "float", "subtract"], category="math")
 class FloatSubtractInvocation(BaseInvocation):
     """Subtracts two floating point numbers"""
 
@@ -286,7 +302,7 @@ class FloatSubtractInvocation(BaseInvocation):
         return FloatOutput(value=self.a - self.b)
 
 
-@invocation("floatmul", title="Float Multiplication (*)", tags=["math", "float",  "multiply"], category="math")
+@invocation("floatmul", version="1.0", title="Float Multiplication (*)", tags=["math", "float",  "multiply"], category="math")
 class FloatMultiplyInvocation(BaseInvocation):
     """Multiplies two floating point numbers"""
 
@@ -297,7 +313,7 @@ class FloatMultiplyInvocation(BaseInvocation):
         return FloatOutput(value=self.a * self.b)
 
 
-@invocation("floatdiv", title="Float Division (/)", tags=["math", "float", "divide"], category="math")
+@invocation("floatdiv", version="1.0", title="Float Division (/)", tags=["math", "float", "divide"], category="math")
 class FloatDivideInvocation(BaseInvocation):
     """Divides two floating point numbers"""
 
@@ -308,7 +324,7 @@ class FloatDivideInvocation(BaseInvocation):
         return FloatOutput(value=self.a / self.b)
 
 
-@invocation("floatmodulo", title="Float Modulo (%)", tags=["math", "float", "modulo"], category="math")
+@invocation("floatmodulo", version="1.0", title="Float Modulo (%)", tags=["math", "float", "modulo"], category="math")
 class FloatModuloInvocation(BaseInvocation):
     """Calculates the remainder of a division as a float"""
 
@@ -319,7 +335,7 @@ class FloatModuloInvocation(BaseInvocation):
         return FloatOutput(value=self.a % self.b)
 
 
-@invocation("floatabs", title="Float Absolute (abs)", tags=["math", "float", "absolute"], category="math")
+@invocation("floatabs", version="1.0", title="Float Absolute (abs)", tags=["math", "float", "absolute"], category="math")
 class FloatAbsoluteInvocation(BaseInvocation):
     """Calculates the absolute value of a float"""
 
@@ -329,7 +345,7 @@ class FloatAbsoluteInvocation(BaseInvocation):
         return FloatOutput(value=math.abs(self.a))
     
 
-@invocation("floatround", title="Float Round (round)", tags=["math", "float", "integer", "round"], category="math")
+@invocation("floatround", version="1.0", title="Float Round (round)", tags=["math", "float", "integer", "round"], category="math")
 class FloatRoundInvocation(BaseInvocation):
     """Rounds a float and casts to an integer"""
 
@@ -339,7 +355,7 @@ class FloatRoundInvocation(BaseInvocation):
         return IntegerOutput(value=int(math.round(self.a)))
 
 
-@invocation("floatroundtomultiple", title="Float Round To Multiple", tags=["math", "float", "integer", "round"], category="math")
+@invocation("floatroundtomultiple", version="1.0", title="Float Round To Multiple", tags=["math", "float", "integer", "round"], category="math")
 class FloatRoundToMultipleInvocation(BaseInvocation):
     """Rounds a float to the next multiple of N and casts to an integer"""
 
@@ -349,7 +365,7 @@ class FloatRoundToMultipleInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> IntegerOutput:
         return IntegerOutput(value=int(self.a // self.n * self.n))
 
-@invocation("floatceil", title="Float Ceiling (ceil)", tags=["math", "float", "integer", "ceiling"], category="math")
+@invocation("floatceil", version="1.0", title="Float Ceiling (ceil)", tags=["math", "float", "integer", "ceiling"], category="math")
 class FloatCeilInvocation(BaseInvocation):
     """Rounds a float up and casts to an integer"""
 
@@ -359,7 +375,7 @@ class FloatCeilInvocation(BaseInvocation):
         return IntegerOutput(value=int(math.ceil(self.a)))
     
 
-@invocation("floatfloor", title="Float Floor (floor)", tags=["math", "float", "integer", "floor"], category="math")
+@invocation("floatfloor", version="1.0", title="Float Floor (floor)", tags=["math", "float", "integer", "floor"], category="math")
 class FloatFloorInvocation(BaseInvocation):
     """Rounds a float down and casts to an integer"""
 
@@ -369,7 +385,7 @@ class FloatFloorInvocation(BaseInvocation):
         return IntegerOutput(value=int(math.floor(self.a)))
 
 
-@invocation("floatpow", title="Float Raise Power (pow)", tags=["math", "float", "pow"], category="math")
+@invocation("floatpow", version="1.0", title="Float Raise Power (pow)", tags=["math", "float", "pow"], category="math")
 class FloatPowInvocation(BaseInvocation):
     """Raises a float to the power of a value"""
 
@@ -380,7 +396,7 @@ class FloatPowInvocation(BaseInvocation):
         return FloatOutput(value=math.pow(self.a, self.b))
 
 
-@invocation("floatsqrt", title="Float Square Root (sqrt)", tags=["math", "float", "sqrt"], category="math")
+@invocation("floatsqrt", version="1.0", title="Float Square Root (sqrt)", tags=["math", "float", "sqrt"], category="math")
 class FloatSqrtInvocation(BaseInvocation):
     """Calculates the square root of a float"""
 
@@ -390,7 +406,7 @@ class FloatSqrtInvocation(BaseInvocation):
         return FloatOutput(value=math.sqrt(self.a))
 
 
-@invocation("floatlog", title="Float Logarithm (log)", tags=["math", "float", "log"], category="math")
+@invocation("floatlog", version="1.0", title="Float Logarithm (log)", tags=["math", "float", "log"], category="math")
 class FloatLogInvocation(BaseInvocation):
     """Calculates the natural logarithm of a float"""
 
@@ -399,7 +415,7 @@ class FloatLogInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.log(self.a))
     
-@invocation("floatlogn", title="Float Logarithm N (logn)", tags=["math", "float", "log"], category="math")
+@invocation("floatlogn", version="1.0", title="Float Logarithm N (logn)", tags=["math", "float", "log"], category="math")
 class FloatLogNInvocation(BaseInvocation):
     """Calculates the logarithm of a float to a base N"""
 
@@ -409,7 +425,7 @@ class FloatLogNInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.log(self.a, self.n))
 
-@invocation("floatsin", title="Float Sine (sin)", tags=["math", "float", "sine"], category="math")
+@invocation("floatsin", version="1.0", title="Float Sine (sin)", tags=["math", "float", "sine"], category="math")
 class FloatSineInvocation(BaseInvocation):
     """Calculates the sine of a float as radians"""
 
@@ -419,7 +435,7 @@ class FloatSineInvocation(BaseInvocation):
         return FloatOutput(value=math.sin(self.a))
     
 
-@invocation("floatcos", title="Float Cosine (cos)", tags=["math", "float", "cosine"], category="math")
+@invocation("floatcos", version="1.0", title="Float Cosine (cos)", tags=["math", "float", "cosine"], category="math")
 class FloatCosineInvocation(BaseInvocation):
     """Calculates the cosine of a float as radians"""
 
@@ -428,7 +444,7 @@ class FloatCosineInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.cos(self.a))
 
-@invocation("floattan", title="Float Tangent (tan)", tags=["math", "float", "tangent"], category="math")
+@invocation("floattan", version="1.0", title="Float Tangent (tan)", tags=["math", "float", "tangent"], category="math")
 class FloatTangentInvocation(BaseInvocation):
     """Calculates the tangent of a float as radians"""
 
@@ -438,7 +454,7 @@ class FloatTangentInvocation(BaseInvocation):
         return FloatOutput(value=math.tan(self.a))
 
 
-@invocation("floatsinh", title="Float Hyperbolic Tangent (sinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
+@invocation("floatsinh", version="1.0", title="Float Hyperbolic Tangent (sinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
 class FloatHyperbolicSineInvocation(BaseInvocation):
     """Calculates the hyperbolic sine of a float as radians"""
 
@@ -448,7 +464,7 @@ class FloatHyperbolicSineInvocation(BaseInvocation):
         return FloatOutput(value=math.sinh(self.a))
 
 
-@invocation("floatcosh", title="Float Hyperbolic Cosine (cosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
+@invocation("floatcosh", version="1.0", title="Float Hyperbolic Cosine (cosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
 class FloatHyperbolicCosineInvocation(BaseInvocation):
     """Calculates the hyperbolic cosine of a float as radians"""
 
@@ -458,7 +474,7 @@ class FloatHyperbolicCosineInvocation(BaseInvocation):
         return FloatOutput(value=math.cosh(self.a))
 
 
-@invocation("floattanh", title="Float Hyperbolic Tangent (tanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
+@invocation("floattanh", version="1.0", title="Float Hyperbolic Tangent (tanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
 class FloatHyperbolicTangentInvocation(BaseInvocation):
     """Calculates the hyperbolic tangent of a float as radians"""
 
@@ -467,7 +483,7 @@ class FloatHyperbolicTangentInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.tanh(self.a))
 
-@invocation("floatasin", title="Float Arc Tangent (asin)", tags=["math", "float", "sine", "arc"], category="math")
+@invocation("floatasin", version="1.0", title="Float Arc Tangent (asin)", tags=["math", "float", "sine", "arc"], category="math")
 class FloatArcSineInvocation(BaseInvocation):
     """Calculates the arc sine of a float as radians"""
 
@@ -476,7 +492,7 @@ class FloatArcSineInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.asin(self.a))
     
-@invocation("floatacos", title="Float Arc Cosine (acos)", tags=["math", "float", "cosine", "arc"], category="math")
+@invocation("floatacos", version="1.0", title="Float Arc Cosine (acos)", tags=["math", "float", "cosine", "arc"], category="math")
 class FloatArcCosineInvocation(BaseInvocation):
     """Calculates the arc cosine of a float as radians"""
 
@@ -485,7 +501,7 @@ class FloatArcCosineInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.acos(self.a))
 
-@invocation("floatatan", title="Float Arc Tangent (atan)", tags=["math", "float", "tangent", "arc"], category="math")
+@invocation("floatatan", version="1.0", title="Float Arc Tangent (atan)", tags=["math", "float", "tangent", "arc"], category="math")
 class FloatArcTangentInvocation(BaseInvocation):
     """Calculates the arc tangent of a float as radians"""
 
@@ -495,7 +511,7 @@ class FloatArcTangentInvocation(BaseInvocation):
         return FloatOutput(value=math.atan(self.a))
 
 
-@invocation("floatasinh", title="Float Inverse Hyperbolic Tangent (asinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
+@invocation("floatasinh", version="1.0", title="Float Inverse Hyperbolic Tangent (asinh)", tags=["math", "float", "sine", "hyerbolic"], category="math")
 class FloatInverseHyerbolicSineInvocation(BaseInvocation):
     """Calculates the inverse hyperbolic sine of a float as radians"""
 
@@ -505,7 +521,7 @@ class FloatInverseHyerbolicSineInvocation(BaseInvocation):
         return FloatOutput(value=math.asinh(self.a))
 
 
-@invocation("floatacosh", title="Float Inverse Hyperbolic Cosine (acosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
+@invocation("floatacosh", version="1.0", title="Float Inverse Hyperbolic Cosine (acosh)", tags=["math", "float", "cosine", "hyerbolic"], category="math")
 class FloatInverseHyerbolicCosineInvocation(BaseInvocation):
     """Calculates the inverse hyperbolic cosine of a float as radians"""
 
@@ -515,7 +531,7 @@ class FloatInverseHyerbolicCosineInvocation(BaseInvocation):
         return FloatOutput(value=math.acosh(self.a))
 
 
-@invocation("floatatanh", title="Float Inverse Hyperbolic Tangent (atanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
+@invocation("floatatanh", version="1.0", title="Float Inverse Hyperbolic Tangent (atanh)", tags=["math", "float", "tangent", "hyerbolic"], category="math")
 class FloatInverseHyerbolicTangentInvocation(BaseInvocation):
     """Calculates the inverse hyperbolic tangent of a float as radians"""
 
@@ -524,7 +540,7 @@ class FloatInverseHyerbolicTangentInvocation(BaseInvocation):
     def invoke(self, context: InvocationContext) -> FloatOutput:
         return FloatOutput(value=math.atanh(self.a))
 
-@invocation("floatrand", title="Float Random", tags=["math", "float", "random"], category="math")
+@invocation("floatrand", version="1.0", title="Float Random", tags=["math", "float", "random"], category="math")
 class FloatRandomInvocation(BaseInvocation):
     """Outputs a single random floating point number"""
 
@@ -536,7 +552,7 @@ class FloatRandomInvocation(BaseInvocation):
         return FloatOutput(value=float(random.uniform(self.low, self.high)))
 
 
-@invocation("floatequals", title="Float Equals (==)", tags=["logic", "condition", "float", "equal", "boolean"], category="logic")
+@invocation("floatequals", version="1.0", title="Float Equals (==)", tags=["logic", "condition", "float", "equal", "boolean"], category="logic")
 class FloatEqualsInvocation(BaseInvocation):
     """Compares two floating point numbers"""
 
@@ -547,7 +563,7 @@ class FloatEqualsInvocation(BaseInvocation):
         return BooleanOutput(value=self.a == self.b)
     
 
-@invocation("floatgreater", title="Float Greater Than (>)", tags=["logic", "condition", "float", "greater", "boolean"], category="logic")
+@invocation("floatgreater", version="1.0", title="Float Greater Than (>)", tags=["logic", "condition", "float", "greater", "boolean"], category="logic")
 class FloatGreaterInvocation(BaseInvocation):
     """Compares if one floating point number is greater than another"""
 
@@ -558,7 +574,7 @@ class FloatGreaterInvocation(BaseInvocation):
         return BooleanOutput(value=self.a > self.b)
 
 
-@invocation("floatgreaterequals", title="Float Greater or Equal Than (>=)", tags=["logic", "condition", "float", "greater", "equal", "boolean"], category="logic")
+@invocation("floatgreaterequals", version="1.0", title="Float Greater or Equal Than (>=)", tags=["logic", "condition", "float", "greater", "equal", "boolean"], category="logic")
 class FloatGreaterEqualsInvocation(BaseInvocation):
     """Compares if one floating point number is greater than or equal to another"""
 
@@ -569,7 +585,7 @@ class FloatGreaterEqualsInvocation(BaseInvocation):
         return BooleanOutput(value=self.a >= self.b)
 
 
-@invocation("floatless", title="Float Less Than (<)", tags=["logic", "condition", "float", "less", "boolean"], category="logic")
+@invocation("floatless", version="1.0", title="Float Less Than (<)", tags=["logic", "condition", "float", "less", "boolean"], category="logic")
 class FloatLessInvocation(BaseInvocation):
     """Compares if one floating point number is less than another"""
 
@@ -580,7 +596,7 @@ class FloatLessInvocation(BaseInvocation):
         return BooleanOutput(value=self.a < self.b)
 
 
-@invocation("floatlessequals", title="Float Less or Equal Than (<=)", tags=["logic", "condition", "float", "less", "equal", "boolean"], category="logic")
+@invocation("floatlessequals", version="1.0", title="Float Less or Equal Than (<=)", tags=["logic", "condition", "float", "less", "equal", "boolean"], category="logic")
 class FloatLessEqualsInvocation(BaseInvocation):
     """Compares if one floating point number is less than or equal to another"""
 
