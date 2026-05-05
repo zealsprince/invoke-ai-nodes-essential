@@ -8,11 +8,24 @@ I plan on expanding these nodes with more essential workflow modules such as bas
 
 ## Installation
 
-To install, place the `.py` files into your InvokeAI invocations folder located here:
+### Automatic Installation
+This package is compatible with Invoke AI's Custom Node Manager. You can install it directly from GitHub:
 
-Windows - `invokeai\.venv\Lib\site-packages\invokeai\app\invocations\`
+1. Open Invoke AI's web interface
+2. Go to the Custom Nodes section
+3. Install from Git URL: `https://github.com/zealsprince/invoke-ai-nodes-essential`
 
-Mac/Linux - `invokeai/.venv/lib/python3.10/site-packages/invokeai/app/invocations/`
+### Manual Installation
+To install manually, clone this repository and place it in your InvokeAI nodes directory:
+
+```bash
+git clone https://github.com/zealsprince/invoke-ai-nodes-essential.git
+# Copy the cloned directory to your InvokeAI nodes folder
+```
+
+The nodes directory is typically located at:
+- Windows: `invokeai\nodes\`
+- Mac/Linux: `invokeai/nodes/`
 
 ## Example Use
 
@@ -36,6 +49,7 @@ Mac/Linux - `invokeai/.venv/lib/python3.10/site-packages/invokeai/app/invocation
 | IntegerModuloInvocation | Integer Modulo (%) | Calculates the remainder of a division as an integer
 | IntegerAbsoluteInvocation | Integer Absolute (abs) | Calculates the absolute value of an integer
 | IntegerRandomInvocation | Integer Random | Outputs a single random integer
+| IntegerMultiplyFloatInvocation | Integer Multiply Float | Multiplies an integer with a float and returns a rounded integer
 | IntegerEqualsInvocation | Integer Equals (==) | Compares two Integers
 | IntegerGreaterInvocation | Integer Greater Than (>) | Compares if one Integer is greater than another
 | IntegerGreaterEqualsInvocation | Integer Greater or Equal Than (>=) | Compares if one Integer is greater than or equal to another
